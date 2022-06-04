@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+{% load translator %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'design/style.css' %}">
+</head>
+<body>
+<header>
+    <div class="header__left">
+        {% if user.is_authenticated %}
+        <a href="{% url 'home' %}" class="left1">Home</a>
+        <a href="{% url 'my_blogs' user1 %}" class="left1">My blog</a>
+        <a href="{% url 'make_blogs' %}" class="left1">Create Blog</a>
+        {% endif %}
+    </div>
+    <div class="header__search">
+        <form method="GET" >
+            <input type="text" name="search"  placeholder="What are you looking for?">
+            <button  type="submit">Search Now</button>
+
+        </form>
+    </div>
+    <div class="header__auth">
+        <a href="{% url 'registration' %}" class="login">
+            SIGN IN
+        </a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="logout">
+            log out
+        </a>
+        {% endif %}
+    </div>
+</header>
+<div class="lang">
+    <a href="{% url 'home2' uz %}" class="lang1 active">{{uz}}</a>
+    <a href="{% url 'home2' ru %}"  class="lang1">{{ru}}</a>
+    <a href="{% url 'home2' eng %}"  class="lang1">{{eng}}</a>
+</div>
+
+     <h1>WELCOME OUR WEBSITE !!!</h1>
+{% if user.is_authenticated %}
+ <h3>{{user1}}</h3>
+{% else %}
+<h3>PLEASE !!!</h3>
+<h1>SIGN IN </h1>
+{% endif %}
+ <h5>{{time}}</h5>
+ {% for form in forms %}
+<a href="{% url 'blog_one' form.slug %}"><img  src="/{{form.image}}" alt=""></a>
+<h3>{% if lan_code == 'uz' %}
+       {{form.title |translate_uz}}
+     {% elif lan_code == 'ru' %}
+       {{form.title |translate_ru}}
+      {% elif lan_code == 'en' %}
+       {{form.title |translate_en}}
+     {% endif %}</h3>
+<p>{% if lan_code == 'uz' %}
+       {{form.content |translate_uz}}
+     {% elif lan_code == 'ru' %}
+       {{form.content |translate_ru}}
+      {% elif lan_code == 'en' %}
+       {{form.cotent |translate_en}}
+     {% endif %}</p>
+<p>{{form.created_at}}</p>
+<p>{{form.username}}</p>
+<p>views:{{form.views_counter}}</p>
+    <p>{{form.avtive}}</p>
+
+
+
+{% endfor %}
+
+
+
+<div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">&raquo;</a>
+  </div>
+
+</body>
+</html>

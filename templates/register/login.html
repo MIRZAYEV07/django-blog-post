@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{forms.as_p}}
+
+
+  <button type="submit">SUBMIT</button>
+
+
+
+</form>
+<a href="{% url 'forgot_password' %}">FORGOT PASSWORD</a>
+</body>
+</html>

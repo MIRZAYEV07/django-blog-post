@@ -1,0 +1,145 @@
+body, * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+}
+.container {
+    max-width: 1525px;
+    margin: auto;
+}
+header{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+header .header__left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+header .header__left .left1{
+    padding: 4px;
+    margin-right:20px;
+    border-radius: 10px;
+}
+header .header__left .left1:hover{
+    color: white;
+    background-color: orange;
+}
+header .header__search{
+    color: aqua;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+input:focus{
+    outline: none;
+}
+.header__auth{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 4px;
+}
+.header__auth .login:hover,
+.header__auth .logout:hover{
+    background-color: orange;
+    color: white;
+}
+
+.lang{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    padding: 10px;
+}
+.lang .lang1{
+    margin: 0px 5px;
+    border: 1px solid grey;
+    padding: 3px;
+    border-radius: 6px;
+}
+.lang .lang1:hover{
+    background-color: orange;
+    color: white;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -11px;
+    margin-right: -11px;
+ }
+ .col-4 {
+    flex-basis: 33%;
+    width: 33%;
+    max-width: 33%;
+    padding-left: 11px;
+    padding-right: 11px;
+ }
+.blog__main{
+    overflow: hidden;
+}
+ .blog__main img{
+     width: 100%;
+     object-fit: contain;
+ }
+ .pagination {
+    display: inline-block;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .pagination a:hover{
+      background-color: orange;
+      color: white;
+      border-radius: 6px;
+
+  }
+  .blogs{
+      margin-bottom: 10px;
+      padding: 11px;
+  }
+  .blogs .blog__main{
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+    background-color: rgb(207, 204, 198);
+    border-radius: 10px;
+    padding: 6px;
+  }
+  .blogs .blog__main:hover{
+      background-color: orange;
+  }
+  .blogs .blog__main .blog__info{
+    padding:5px;
+  }
+  .blogs .author{
+      display: flex;
+      align-items: center;
+      justify-content: left;
+  }
+  .blogs .author span,
+  .blogs .date span{
+      font-weight: bold;
+      display: inline-block;
+  }
+  .blogs .text{
+      font-weight: 200;
+  }
